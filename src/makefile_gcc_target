@@ -3,7 +3,7 @@
 ######################################################
 
 ifeq ($(EXT),dll)
-	LNKFLAGS = -mdll -Xlinker --base-file -Xlinker $(TMPDIR)/$(RELEASENAME).base
+	LNKFLAGS = -Wl,--add-stdcall-alias -Wl,--export-all-symbols -lWinmm -mdll -Xlinker --base-file -Xlinker $(TMPDIR)/$(RELEASENAME).base
 	ifdef BASEADDRESS
 		LNKFLAGS += -Xlinker --image-base -Xlinker $(BASEADDRESS)
 	endif
@@ -91,7 +91,7 @@ ifeq ($(EXT),exe)
 else
 	@$(CXX) -mdll -o $(TMPDIR)/$(RELEASENAME) -Xlinker --base-file -Xlinker $(TMPDIR)/$(RELEASENAME).base $(OBJS) $(LNKFLAGS)
 	@$(DLLTOOL) --dllname $(TMPDIR)/$(RELEASENAME) --base-file $(TMPDIR)/$(RELEASENAME).base --output-exp $(TMPDIR)/$(RELEASENAME).exp --def $(DEF)
-	@$(CXX) -mdll -o $(TMPDIR)/$(RELEASENAME) $(OBJS) $(TMPDIR)/$(RELEASENAME).exp $(LNKFLAGS) -Xlinker -Map -Xlinker $(MAP)
+	#@$(CXX) -mdll -o $(TMPDIR)/$(RELEASENAME) $(OBJS) $(TMPDIR)/$(RELEASENAME).exp $(LNKFLAGS) -Xlinker -Map -Xlinker $(MAP)
 endif
 	@$(MV) $(TMPDIR)/$(RELEASENAME) $(RELEASEFULLNAME)
 

@@ -3767,7 +3767,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 done:
 	DEBUGSTRSTARTUP(L"Terminating");
-	ShutdownGuiStep(L"MessageLoop terminated");
+	ShutdownGuiStep(L"MessageLoop terminated");ExitProcess(0);return 0;
 //------------------------------------------------------------------------
 ///| Deinitialization |///////////////////////////////////////////////////
 //------------------------------------------------------------------------

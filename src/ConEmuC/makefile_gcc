@@ -12,7 +12,7 @@
 NAME = ConEmuC
 EXT = exe
 RELEASESUBDIR = /ConEmu
-DEF = ConEmuC.def
+DEF = 
 USERCPP = -D CONEMU_MINIMAL
 LNKPLATFORM = -mconsole
 BASEADDRESS =

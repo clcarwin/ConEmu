@@ -27,7 +27,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 #pragma once
-
+#include "Memory.h"
 template<class KEY_T,class VAL_T,UINT HASH_SHIFT=0>
 struct MMap
 {

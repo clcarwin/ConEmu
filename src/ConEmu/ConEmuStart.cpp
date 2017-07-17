@@ -977,7 +977,7 @@ bool CConEmuStart::ParseCommandLine(LPCWSTR pszCmdLine, int& iResult)
 
 					if (!gpConEmu->opt.SizeVal.Exists)
 					{
-						gpConEmu->opt.SizeVal.SetInt(szNext);
+						gpConEmu->opt.SizeVal.SetInt((int)szNext);
 					}
 				}
 				// ADD fontname; by Mors
@@ -1199,7 +1199,7 @@ bool CConEmuStart::ParseCommandLine(LPCWSTR pszCmdLine, int& iResult)
 					NeedNextArg();
 
 					if (!gpConEmu->opt.FrameWidth.Exists)
-						gpConEmu->opt.FrameWidth.SetInt(szNext);
+						gpConEmu->opt.FrameWidth.SetInt((int)szNext);
 				}
 				else if (szArg.OneOfSwitches(L"-ShowHide", L"-ShowHideTSA"))
 				{
@@ -1273,7 +1273,7 @@ bool CConEmuStart::ParseCommandLine(LPCWSTR pszCmdLine, int& iResult)
 
 					if (!gpConEmu->opt.BufferHeightVal.Exists)
 					{
-						gpConEmu->opt.BufferHeightVal.SetInt(szNext);
+						gpConEmu->opt.BufferHeightVal.SetInt((int)szNext);
 
 						if (gpConEmu->opt.BufferHeightVal.GetInt() < 0)
 						{

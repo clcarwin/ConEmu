@@ -28,4 +28,4 @@ dirs:
 .PHONY: clean
 clean:
 	@echo final cleaning
-	@rm -rf ../gcc
+	#@rm -rf ../gcc

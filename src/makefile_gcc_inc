@@ -101,7 +101,7 @@ GCCWARNINGS += -Wparentheses
 GCCWARNINGS += -Wnarrowing
 
 FCPPOPT = -fstrict-aliasing -funsigned-char
-FCPPOPT += -fno-rtti
+#FCPPOPT += -fno-rtti
 #FCPPOPT += -fno-exceptions
 
 CFLAGS = -pipe $(CCWIDE) $(BITDEF) $(USERCPPFLAGS) $(DEBUGFLAGS) $(COPTIMIZE) $(USERCPP) $(WINVER)

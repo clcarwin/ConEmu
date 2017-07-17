@@ -63,8 +63,8 @@ public:
 	// *** Not copyable, not implemented, use explicit Set method ***
 	#if defined(__GNUC__)
 	public:
-	CEStr(const CEStr&) = delete;
-	CEStr& operator=(const CEStr &) = delete;
+	CEStr(const CEStr&);
+	CEStr& operator=(const CEStr &);
 	#else
 	private:
 	// We may use "=delete" in C++11, but than cl shows only first error

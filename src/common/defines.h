@@ -51,13 +51,15 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define WARNING(s)
 #define PRAGMA_ERROR(s)
 
-#ifndef max
-#define max(a,b)            (((a) > (b)) ? (a) : (b))
-#endif
+// #ifndef max
+// #define max(a,b)            (((a) > (b)) ? (a) : (b))
+// #endif
 
-#ifndef min
-#define min(a,b)            (((a) < (b)) ? (a) : (b))
-#endif
+// #ifndef min
+// #define min(a,b)            (((a) < (b)) ? (a) : (b))
+// #endif
+static int min(const int a,const int b) { return (((a) < (b)) ? (a) : (b)); }
+static int max(const int a,const int b) { return (((a) > (b)) ? (a) : (b)); }
 
 //#define _ASSERT(f)
 //#define _ASSERTE(f)

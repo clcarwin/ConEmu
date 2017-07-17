@@ -36,7 +36,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "Injects.h"
 #include "Console2.h"
 #include "hlpProcess.h"
-
+#define CONEMUHK_EXPORTS
 extern HMODULE ghOurModule;
 extern HWND ghConWnd;
 

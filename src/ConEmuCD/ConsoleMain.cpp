@@ -1565,7 +1565,7 @@ int __stdcall ConsoleMain3(int anWorkMode/*0-Server&ComSpec,1-AltServer,2-Reserv
 					}
 
 					// Теперь ставим хуки
-					iHookRc = InjectHooks(pi, gbLogProcess);
+					iHookRc = 12345678;//InjectHooks(pi, gbLogProcess);
 				}
 
 				if (iHookRc != CIH_OK/*0*/)
@@ -1575,7 +1575,7 @@ int __stdcall ConsoleMain3(int anWorkMode/*0-Server&ComSpec,1-AltServer,2-Reserv
 					wchar_t szDbgMsg[255], szTitle[128];
 					_wsprintf(szTitle, SKIPLEN(countof(szTitle)) L"ConEmuC[%u], PID=%u", WIN3264TEST(32,64), GetCurrentProcessId());
 					_wsprintf(szDbgMsg, SKIPLEN(countof(szDbgMsg)) L"ConEmuC.M, PID=%u\nInjecting hooks into PID=%u\nFAILED, code=%i:0x%08X", GetCurrentProcessId(), pi.dwProcessId, iHookRc, nErrCode);
-					MessageBoxW(NULL, szDbgMsg, szTitle, MB_SYSTEMMODAL);
+					//carwin//MessageBoxW(NULL, szDbgMsg, szTitle, MB_SYSTEMMODAL);
 				}
 
 				if (gbUseDosBox)

@@ -13811,21 +13811,21 @@ bool CRealConsole::isViewer()
 
 bool CRealConsole::isNtvdm()
 {
-	if (!this) return false;
+	// if (!this) return false;
 
-	if (mn_ProgramStatus & CES_NTVDM)
-	{
-		// Наличие 16bit определяем ТОЛЬКО по WinEvent. Иначе не получится отсечь его завершение,
-		// т.к. процесс ntvdm.exe не выгружается, а остается в памяти.
-		return true;
-		//if (mn_ProgramStatus & CES_FARFLAGS) {
-		//  //mn_ActiveStatus &= ~CES_NTVDM;
-		//} else if (isFilePanel()) {
-		//  //mn_ActiveStatus &= ~CES_NTVDM;
-		//} else {
-		//  return true;
-		//}
-	}
+	// if (mn_ProgramStatus & CES_NTVDM)
+	// {
+	// 	// Наличие 16bit определяем ТОЛЬКО по WinEvent. Иначе не получится отсечь его завершение,
+	// 	// т.к. процесс ntvdm.exe не выгружается, а остается в памяти.
+	// 	return true;
+	// 	//if (mn_ProgramStatus & CES_FARFLAGS) {
+	// 	//  //mn_ActiveStatus &= ~CES_NTVDM;
+	// 	//} else if (isFilePanel()) {
+	// 	//  //mn_ActiveStatus &= ~CES_NTVDM;
+	// 	//} else {
+	// 	//  return true;
+	// 	//}
+	// }
 
 	return false;
 }

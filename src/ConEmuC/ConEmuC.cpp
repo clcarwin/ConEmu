@@ -215,7 +215,7 @@ int DoParseArgs(LPCWSTR asCmdLine)
 	#define HL(fore) Highlighter hl(hOut, csbi.wAttributes, fore)
 
 	#if defined(__GNUC__)
-	lstrcpyn(szCLVer, "GNUC");
+	lstrcpynA(szCLVer, "GNUC", 4);
 	#elif defined(_MSC_VER)
 	_wsprintfA(szCLVer, SKIPCOUNT(szCLVer) "VC %u.%u", (int)(_MSC_VER / 100), (int)(_MSC_VER % 100));
 	#else

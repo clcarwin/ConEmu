@@ -44,10 +44,10 @@ extern HANDLE ghHeap;
 bool HeapInitialize();
 void HeapDeinitialize();
 
-void * __cdecl operator new(size_t size);
-void * __cdecl operator new[](size_t size);
-void __cdecl operator delete(void *block);
-void __cdecl operator delete[](void *ptr);
+// void * __cdecl operator new(size_t size);
+// void * __cdecl operator new[](size_t size);
+// void __cdecl operator delete(void *block);
+// void __cdecl operator delete[](void *ptr);
 
 #ifdef TRACK_MEMORY_ALLOCATIONS
 	struct xf_mem_block
