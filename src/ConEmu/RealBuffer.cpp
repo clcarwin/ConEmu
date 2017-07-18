@@ -3408,7 +3408,7 @@ void CRealBuffer::OnTimerCheckSelection()
 		OnMouse(WM_MOUSEMOVE, wParam, x, y, crMouse);
 	}
 }
-
+#include "stdio.h"
 // x,y - экранные координаты
 // crMouse - ScreenToBuffer
 // Возвращает true, если мышку обработал "сам буфер"
@@ -3432,6 +3432,38 @@ bool CRealBuffer::OnMouse(UINT messg, WPARAM wParam, int x, int y, COORD crMouse
 	bool bSelAllowed = false;
 	DWORD nModifierPressed = 0;
 	DWORD nModifierNoEmptyPressed = 0;
+
+	if(messg==WM_LBUTTONUP)
+	{
+		COORD crStart = crMouse;
+		if(GetSelectionCellsCount()<=1)
+		if(con.m_sbi.dwCursorPosition.Y == crStart.Y) {
+			int num = con.m_sbi.dwCursorPosition.X-crStart.X;
+			for(int i=0; i<abs(num); i++) {
+				PostMessage(ghWnd,WM_KEYDOWN,num>0?VK_LEFT:VK_RIGHT,NULL);
+				PostMessage(ghWnd,WM_KEYUP,num>0?VK_LEFT:VK_RIGHT,NULL);
+			}
+		}
+		if(1==GetSelectionCellsCount()) DoSelectionFinalize(false);
+	}
+	if(messg==WM_RBUTTONDOWN) return true;
+	if(messg==WM_RBUTTONUP)
+	{
+		HMENU h = CreatePopupMenu();
+		AppendMenu(h, MF_STRING, 1, L"Copy"); AppendMenu(h, MF_STRING, 2, L"Paste");
+		AppendMenu(h, MF_STRING, 3, L"Refresh");
+		POINT pt; GetCursorPos(&pt);
+		int cmd = gpConEmu->mp_Menu->trackPopupMenu(tmp_KeyBar, h, 
+		    TPM_LEFTALIGN|TPM_BOTTOMALIGN|TPM_RETURNCMD|TPM_LEFTBUTTON|TPM_RIGHTBUTTON, pt.x,pt.y, ghWnd, NULL);
+		DestroyMenu(h);
+		if(0==cmd) {/*do nothing*/};
+		if(1==cmd) if(GetSelectionCellsCount()>0) DoSelectionFinalize(true); //copy
+		if(2==cmd) mp_RCon->Paste();
+		if(3==cmd) PostMessage(ghWnd,WM_SYSCOMMAND,SC_MAXIMIZE,0);
+		if(3==cmd) PostMessage(ghWnd,WM_SYSCOMMAND,SC_RESTORE,0);
+
+		return true;
+	}
 
 	// Ensure that coordinates are correct
 	if (!PatchMouseCoords(x, y, crMouse))
