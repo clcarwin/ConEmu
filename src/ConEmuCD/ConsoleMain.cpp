@@ -1565,7 +1565,7 @@ int __stdcall ConsoleMain3(int anWorkMode/*0-Server&ComSpec,1-AltServer,2-Reserv
 					}
 
 					// Теперь ставим хуки
-					iHookRc = 12345678;//InjectHooks(pi, gbLogProcess);
+					iHookRc = InjectHooks(pi, gbLogProcess); //carwin
 				}
 
 				if (iHookRc != CIH_OK/*0*/)
