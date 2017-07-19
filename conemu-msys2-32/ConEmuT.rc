@@ -1,11 +1,8 @@
-// Version Information for Cygwin/Msys connector
-
 #include <windows.h>
-#include "version.h"
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION VERSION_N
- PRODUCTVERSION VERSION_N
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -20,10 +17,10 @@ BEGIN
     BEGIN
         BLOCK "000004b0"
         BEGIN
-            VALUE "CompanyName", "ConEmu-Maximus5\0"
-            VALUE "LegalCopyright", "© ConEmu.Maximus5@gmail.com"
-            VALUE "FileDescription", "Cygwin/Msys connector\0"
-            VALUE "FileVersion", VERSION_S VER_NAME
+            VALUE "CompanyName", ""
+            VALUE "LegalCopyright", ""
+            VALUE "FileDescription", ""
+            VALUE "FileVersion", "1.0" ""
         END
     END
     BLOCK "VarFileInfo"
